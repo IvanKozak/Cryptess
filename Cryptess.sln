@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32811.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cryptess.Core", "Cryptess.Core\Cryptess.Core.csproj", "{FCC303EA-026A-4152-9044-8E54FE40967F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCC303EA-026A-4152-9044-8E54FE40967F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCC303EA-026A-4152-9044-8E54FE40967F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCC303EA-026A-4152-9044-8E54FE40967F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCC303EA-026A-4152-9044-8E54FE40967F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ACC49C33-7519-4D47-A423-91DCCA36BD2A}
+	EndGlobalSection
+EndGlobal

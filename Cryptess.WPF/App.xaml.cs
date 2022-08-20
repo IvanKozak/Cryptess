@@ -1,4 +1,5 @@
-﻿using MvvmCross.Platforms.Wpf.Views;
+﻿using MvvmCross.Core;
+using MvvmCross.Platforms.Wpf.Views;
 
 namespace Cryptess.WPF
 {
@@ -7,5 +8,9 @@ namespace Cryptess.WPF
     /// </summary>
     public partial class App : MvxApplication
     {
+        protected override void RegisterSetup()
+        {
+            this.RegisterSetupType<Setup>();
+        }
     }
 }

@@ -4,7 +4,7 @@ Test assignment for DCT company. This is a WPF program that displays various inf
 
 ## Description
 
-This app is implemented using MVVM pattern with help of [WvvmCross](https://www.mvvmcross.com) framework. Therefore, it consists of the "Core" .NET Standard 2.0 library, in which all ViewModels and other platform-independent code is stored, and WPF .NET 6.0 project.
+This app is implemented using MVVM pattern with help of [MvvmCross](https://www.mvvmcross.com) framework. Therefore, it consists of the "Core" .NET Standard 2.0 library, in which all ViewModels and other platform-independent code is stored, and WPF .NET 6.0 project.
 
 ## Roadmap
 

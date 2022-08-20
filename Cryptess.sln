@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cryptess.Core", "Cryptess.Core\Cryptess.Core.csproj", "{FCC303EA-026A-4152-9044-8E54FE40967F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cryptess.WPF", "Cryptess.WPF\Cryptess.WPF.csproj", "{6DF0F810-AE3F-4A90-8C98-F7FE03C418E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cryptess.WPF", "Cryptess.WPF\Cryptess.WPF.csproj", "{6DF0F810-AE3F-4A90-8C98-F7FE03C418E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cryptess.Tests", "Cryptess.Tests\Cryptess.Tests.csproj", "{D53A06B0-8D74-45FA-AC62-4F4ED6B6289E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6DF0F810-AE3F-4A90-8C98-F7FE03C418E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DF0F810-AE3F-4A90-8C98-F7FE03C418E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DF0F810-AE3F-4A90-8C98-F7FE03C418E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D53A06B0-8D74-45FA-AC62-4F4ED6B6289E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D53A06B0-8D74-45FA-AC62-4F4ED6B6289E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D53A06B0-8D74-45FA-AC62-4F4ED6B6289E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D53A06B0-8D74-45FA-AC62-4F4ED6B6289E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

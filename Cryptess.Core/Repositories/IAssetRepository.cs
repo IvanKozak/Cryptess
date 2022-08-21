@@ -1,11 +1,11 @@
 ﻿using Cryptess.Core.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace Cryptess.Core.Repositories
 {
     public interface IAssetRepository
     {
-        Task<List<Asset>> GetAssets();
+        ObservableCollection<Asset> GetAssets();
+        ObservableCollection<SimpleAsset> GetAssetsOverview();
     }
 }

@@ -1,21 +1,44 @@
 ﻿using Cryptess.Core.Models;
-using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace Cryptess.Core.Repositories
 {
     public class DummyAssetRepository : IAssetRepository
     {
-        public async Task<List<Asset>> GetAssets()
-        {
-            string fileName = "AssetSamples.json";
-            using (FileStream stream = File.OpenRead(fileName))
-            {
-                return await JsonSerializer.DeserializeAsync<List<Asset>>(stream);
-            }
+        private readonly IConfiguration _config;
 
+        public DummyAssetRepository(IConfiguration config)
+        {
+            _config = config;
+        }
+        public ObservableCollection<Asset> GetAssets()
+        {
+            string path = _config["DummyAssetsPath"];
+            using (FileStream stream = File.OpenRead(path))
+            {
+                using (JsonDocument document = JsonDocument.Parse(stream))
+                {
+                    JsonElement root = document.RootElement;
+                    JsonElement assetsElement = root.GetProperty("assets");
+                    return assetsElement.Deserialize<ObservableCollection<Asset>>();
+                }
+            }
+        }
+        public ObservableCollection<SimpleAsset> GetAssetsOverview()
+        {
+            string filePath = _config["DummyAssetsPath"];
+            using (var sourceStream = File.OpenRead(filePath))
+            {
+                using (JsonDocument document = JsonDocument.Parse(sourceStream))
+                {
+                    JsonElement root = document.RootElement;
+                    JsonElement assetsElement = root.GetProperty("assets");
+                    return assetsElement.Deserialize<ObservableCollection<SimpleAsset>>();
+                }
+            }
         }
     }
 }

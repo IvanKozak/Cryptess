@@ -12,7 +12,7 @@ This app is implemented using MVVM pattern with help of [MvvmCross](https://www.
 - [x] Create a ViewModel for main page
 - [x] Create service that will pull test data from local JSON file instead of API call
 - [x] Create a View for main page
-- [ ] Create ViewModel and View for details page and navigation to and from it
+- [x] Create ViewModel and View for details page and navigation to and from it
 - [ ] Implement searching for currency by name or code
 - [ ] Replace dummy data service with real one
 - [ ] Make visual improvements to the UI

@@ -1,0 +1,36 @@
+﻿<views:MvxWpfView x:Class="Cryptess.WPF.Views.AssetDetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:views="clr-namespace:MvvmCross.Platforms.Wpf.Views;assembly=MvvmCross.Platforms.Wpf"
+             xmlns:mvx="clr-namespace:MvvmCross.Platforms.Wpf.Binding;assembly=MvvmCross.Platforms.Wpf"
+             xmlns:local="clr-namespace:Cryptess.WPF.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel Margin="5,5,5,5">
+        <Grid Height="200" Width="780">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*" MinWidth="20"/>
+                <ColumnDefinition Width="50*" MinWidth="20"/>
+                <ColumnDefinition Width="50*" MinWidth="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40*" MinHeight="15"/>
+                <RowDefinition Height="40*" MinHeight="15"/>
+                <RowDefinition Height="40*" MinHeight="15"/>
+            </Grid.RowDefinitions>
+            <TextBlock mvx:Bi.nd="Text Asset.Name" Grid.Row="0" Grid.Column="0"/>
+            <TextBlock mvx:Bi.nd="Text Asset.Price" Grid.Row="0" Grid.Column="1"/>
+            <TextBlock mvx:Bi.nd="Text Asset.Volume24h" Grid.Row="0" Grid.Column="2"/>
+            <TextBlock mvx:Bi.nd="Text Asset.Change1h" Grid.Row="1" Grid.Column="0"/>
+            <TextBlock mvx:Bi.nd="Text Asset.Change24h" Grid.Row="1" Grid.Column="1"/>
+            <TextBlock mvx:Bi.nd="Text Asset.Change7d" Grid.Row="1" Grid.Column="2"/>
+            <TextBlock mvx:Bi.nd="Text Asset.Status" Grid.Row="2" Grid.Column="0"/>
+            <TextBlock mvx:Bi.nd="Text Asset.CreatedAt" Grid.Row="2" Grid.Column="1"/>
+            <TextBlock mvx:Bi.nd="Text Asset.UpdatedAt" Grid.Row="2" Grid.Column="2"/>
+
+        </Grid>
+        <Button mvx:Bi.nd="Command CloseCommand" Content="&lt;=" Height="24" Width="60" />
+    </StackPanel>
+</views:MvxWpfView>

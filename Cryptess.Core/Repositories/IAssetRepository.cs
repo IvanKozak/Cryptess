@@ -7,5 +7,6 @@ namespace Cryptess.Core.Repositories
     {
         ObservableCollection<Asset> GetAssets();
         ObservableCollection<SimpleAsset> GetAssetsOverview();
+        Asset GetAssetById(string assetId);
     }
 }

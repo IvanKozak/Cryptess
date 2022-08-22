@@ -3,7 +3,10 @@ using Cryptess.Core.Repositories;
 using MvvmCross.Commands;
 using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Cryptess.Core.ViewModels
@@ -37,6 +40,18 @@ namespace Cryptess.Core.ViewModels
             Assets = _assetRepo.GetAssetsOverview();
         }
 
+        public IEnumerable<SimpleAsset> SearchResults
+        {
+            get
+            {
+                if (String.IsNullOrWhiteSpace(SearchText))
+                {
+                    return null;
+                }
+                return Assets.Where(a => a.Name.ToUpper().StartsWith(SearchText.ToUpper()) || a.AssetId.ToUpper().StartsWith(SearchText.ToUpper()));
+            }
+        }
+
         private SimpleAsset _selectedAsset;
 
         public SimpleAsset SelectedAsset
@@ -49,6 +64,19 @@ namespace Cryptess.Core.ViewModels
             }
         }
         public bool CanViewAssetDetails => SelectedAsset != null;
+
+        private string _searchText;
+
+        public string SearchText
+        {
+            get { return _searchText; }
+            set
+            {
+                SetProperty(ref _searchText, value);
+                RaisePropertyChanged(() => SearchResults);
+            }
+        }
+
 
         private async Task ShowAssetDetails()
         {

@@ -15,8 +15,10 @@ This app is implemented using MVVM pattern with help of [MvvmCross](https://www.
 - [x] Create ViewModel and View for details page and navigation to and from it
 - [x] Implement searching for currency by name or code
 - [x] Replace dummy data service with real one
+- [x] Implement displaying markets on details page
 - [ ] Make visual improvements to the UI
 - Implement additional features:
+    - [ ]   Ability to go to the currency page on the market 
     - [ ]	Displaying quote charts for currencies 
     - [ ]	Page in which you can convert one currency to another
     - [ ]	Light / dark theme support
@@ -24,15 +26,17 @@ This app is implemented using MVVM pattern with help of [MvvmCross](https://www.
 
 ## Getting started
 
-As of now this program can only work with sample data located at *Cryptess/Cryptess.Core/Repositories/AssetSamples.json*.
-
 In order to run the application you need:
 
 1. Clone this repository
-2. Open appsettings.Development.json file located at *Cryptess/Cryptess.WPF/appsettings.Development.json* with text editor and add entry to it that shows program the path to sample file. Entry sould look something like this:
+2. (Optional) Open appsettings.Development.json file located at *Cryptess/Cryptess.WPF/appsettings.Development.json* with text editor and add following entries:
 ```json
 {
-  "DummyAssetsPath": "C:\\Users\\MyUser\\source\\repos\\MyName\\Cryptess\\Cryptess.Core\\Repositories\\AssetSamples.json"
+  "CryptingUp": {
+    "AssetsSize": 10,
+    "MarketsSize": 5
 }
 ```
+Modifying "AssetsSize" you can display different numbers of assets on main page (default is 10), and "MarketsSize" corresponds to the number of markets displayed on details page (default is 5).
+
 3. Build and Run the app in debug mode.

@@ -30,6 +30,7 @@ namespace Cryptess.WPF
             base.InitializeFirstChance(iocProvider);
             Mvx.IoCProvider.RegisterSingleton<IConfiguration>(AddConfiguration());
             Mvx.IoCProvider.RegisterType<IAssetRepository, CryptingUpAssetRepository>();
+            Mvx.IoCProvider.RegisterType<IMarketRepository, CryptingUpMarketRepository>();
         }
         private IConfiguration AddConfiguration()
         {

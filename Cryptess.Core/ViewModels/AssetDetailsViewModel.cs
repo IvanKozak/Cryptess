@@ -37,7 +37,7 @@ namespace Cryptess.Core.ViewModels
         public override async Task Initialize()
         {
             await base.Initialize();
-            Asset = _assetRepo.GetAssetById(_simpleAsset.AssetId);
+            Asset = await _assetRepo.GetAssetByIdAsync(_simpleAsset.AssetId);
         }
 
         private async Task Close()

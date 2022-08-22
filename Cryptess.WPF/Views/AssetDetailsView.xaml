@@ -31,6 +31,25 @@
             <TextBlock mvx:Bi.nd="Text Asset.UpdatedAt" Grid.Row="2" Grid.Column="2"/>
 
         </Grid>
+        <ListBox Margin="5,5,5,5" ItemsSource="{Binding Markets}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding ExchangeId}"/>
+                        <TextBlock Grid.Column="1" Text="{Binding BaseAsset}"/>
+                        <TextBlock Grid.Column="2" Text="{Binding QuoteAsset}"/>
+                        <TextBlock Grid.Column="3" Text="{Binding Price}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <Button mvx:Bi.nd="Command CloseCommand" Content="&lt;=" Height="24" Width="60" />
     </StackPanel>
 </views:MvxWpfView>

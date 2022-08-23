@@ -18,7 +18,7 @@ This app is implemented using MVVM pattern with help of [MvvmCross](https://www.
 - [x] Implement displaying markets on details page
 - [ ] Make visual improvements to the UI
 - Implement additional features:
-    - [ ]   Ability to go to the currency page on the market 
+    - [x]   Ability to go to the currency page on the market 
     - [ ]	Displaying quote charts for currencies 
     - [x]	Page in which you can convert one currency to another
     - [ ]	Light / dark theme support

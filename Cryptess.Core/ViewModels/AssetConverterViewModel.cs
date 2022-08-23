@@ -59,6 +59,8 @@ namespace Cryptess.Core.ViewModels
             set
             {
                 SetProperty(ref _selectedBaseAsset, value);
+                _baseSearchText = SelectedBaseAsset?.Name;
+                RaisePropertyChanged(() => BaseSearchText);
                 RaisePropertyChanged(() => ConversionResult);
             }
         }
@@ -71,6 +73,8 @@ namespace Cryptess.Core.ViewModels
             set
             {
                 SetProperty(ref _selectedQuoteAsset, value);
+                _quoteSearchText = SelectedQuoteAsset?.Name;
+                RaisePropertyChanged(() => QuoteSearchText);
                 RaisePropertyChanged(() => ConversionResult);
             }
         }
@@ -130,7 +134,11 @@ namespace Cryptess.Core.ViewModels
             {
                 if (SelectedBaseAsset != null && SelectedQuoteAsset != null)
                 {
-                    var market = Markets.Where(m => m.BaseAsset.Equals(SelectedBaseAsset.AssetId) || m.QuoteAsset.Equals(SelectedQuoteAsset.AssetId)).FirstOrDefault();
+                    var market = Markets.Where(m => m.BaseAsset.Equals(SelectedBaseAsset.AssetId) && m.QuoteAsset.Equals(SelectedQuoteAsset.AssetId)).FirstOrDefault();
+                    if (market == null)
+                    {
+                        return $"Found no market for this transaction on {_config["AssetConverter:Exchange"]}";
+                    }
                     return $"One {SelectedBaseAsset.Name} is currently worth {market.Price} {SelectedQuoteAsset.Name}.";
                 }
                 return null;

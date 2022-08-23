@@ -11,8 +11,8 @@
     <Grid Margin="10,10,10,10" ShowGridLines="False">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" MinWidth="280"/>
-            <ColumnDefinition Width="*" MinWidth="280"/>
-            <ColumnDefinition Width="*" MinWidth="280"/>
+            <ColumnDefinition Width="*" MinWidth="140"/>
+            <ColumnDefinition Width="*" MinWidth="140"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" MinHeight="70"/>
@@ -71,7 +71,7 @@
             <ListBox  Margin="5,5,5,5" ItemsSource="{Binding Markets}" >
                 <ListBox.Template>
                     <ControlTemplate>
-                        <DockPanel LastChildFill="True">
+                        <DockPanel LastChildFill="False">
                             <Grid DockPanel.Dock="Top" Height="30">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="80"/>
@@ -109,6 +109,6 @@
             </ListBox>
         </StackPanel>
         
-        <Button Grid.Row="4" Grid.Column="0" mvx:Bi.nd="Command CloseCommand" Content="Return" Margin="10,10,10,10"/>
+        <Button Grid.Row="4" Grid.Column="3" mvx:Bi.nd="Command CloseCommand" Content="Return" Margin="10,10,10,10"/>
     </Grid>
 </views:MvxWpfView>

@@ -8,16 +8,18 @@
              xmlns:local="clr-namespace:Cryptess.WPF.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="5,5,5,5">
+    <Grid Margin="5,5,5,5" ShowGridLines="False">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="0">
             <Label Content="_Base Asset:" Target="{Binding ElementName=BaseAsset}" />
             <TextBox Name="BaseAsset" Text="{Binding BaseSearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <ListBox ItemsSource="{Binding BaseSearchResults}" SelectedItem="{Binding SelectedBaseAsset, Mode=TwoWay}">
@@ -28,7 +30,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </StackPanel>
-        <StackPanel Grid.Column="1">
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
             <Label Content="_Quote Asset:" Target="{Binding ElementName=QuoteAsset}"/>
             <TextBox Name="QuoteAsset" Text="{Binding QuoteSearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <ListBox ItemsSource="{Binding QuoteSearchResults}" SelectedItem="{Binding SelectedQuoteAsset, Mode=TwoWay}">
@@ -39,7 +41,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </StackPanel>
-        <TextBlock Grid.Row="1" Text="{Binding ConversionResult}"/>
-        <Button mvx:Bi.nd="Command CloseCommand" Grid.Row="1" Grid.Column="1" Margin="20,20,20,20">Return</Button>
+        <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="25" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"  Text="{Binding ConversionResult}"/>
+        <Button mvx:Bi.nd="Command CloseCommand" Grid.Row="3" Grid.Column="3" Margin="20,20,20,20">Return</Button>
     </Grid>
 </views:MvxWpfView>

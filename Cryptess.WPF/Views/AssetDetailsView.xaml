@@ -8,39 +8,38 @@
              xmlns:local="clr-namespace:Cryptess.WPF.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel Margin="5,5,5,5">
-        <Grid Height="200" Width="780">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50*" MinWidth="20"/>
-                <ColumnDefinition Width="50*" MinWidth="20"/>
-                <ColumnDefinition Width="50*" MinWidth="20"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40*" MinHeight="15"/>
-                <RowDefinition Height="40*" MinHeight="15"/>
-                <RowDefinition Height="40*" MinHeight="15"/>
-            </Grid.RowDefinitions>
-            <TextBlock mvx:Bi.nd="Text Asset.Name" Grid.Row="0" Grid.Column="0"/>
-            <TextBlock mvx:Bi.nd="Text Asset.Price" Grid.Row="0" Grid.Column="1"/>
-            <TextBlock mvx:Bi.nd="Text Asset.Volume24h" Grid.Row="0" Grid.Column="2"/>
-            <TextBlock mvx:Bi.nd="Text Asset.Change1h" Grid.Row="1" Grid.Column="0"/>
-            <TextBlock mvx:Bi.nd="Text Asset.Change24h" Grid.Row="1" Grid.Column="1"/>
-            <TextBlock mvx:Bi.nd="Text Asset.Change7d" Grid.Row="1" Grid.Column="2"/>
-            <TextBlock mvx:Bi.nd="Text Asset.Status" Grid.Row="2" Grid.Column="0"/>
-            <TextBlock mvx:Bi.nd="Text Asset.CreatedAt" Grid.Row="2" Grid.Column="1"/>
-            <TextBlock mvx:Bi.nd="Text Asset.UpdatedAt" Grid.Row="2" Grid.Column="2"/>
-
-        </Grid>
-        <ListBox Margin="5,5,5,5" ItemsSource="{Binding Markets}">
+    <Grid Margin="10,10,10,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" MinWidth="120"/>
+            <ColumnDefinition Width="*" MinWidth="120"/>
+            <ColumnDefinition Width="*" MinWidth="120"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" MinHeight="70"/>
+            <RowDefinition Height="*" MinHeight="70"/>
+            <RowDefinition Height="*" MinHeight="70"/>
+            <RowDefinition Height="2*" MinHeight="70"/>
+            <RowDefinition Height="*" MinHeight="70"/>
+        </Grid.RowDefinitions>
+        <TextBlock mvx:Bi.nd="Text Asset.Name" Grid.Row="0" Grid.Column="0"/>
+        <TextBlock mvx:Bi.nd="Text Asset.Price" Grid.Row="0" Grid.Column="1"/>
+        <TextBlock mvx:Bi.nd="Text Asset.Volume24h" Grid.Row="0" Grid.Column="2"/>
+        <TextBlock mvx:Bi.nd="Text Asset.Change1h" Grid.Row="1" Grid.Column="0"/>
+        <TextBlock mvx:Bi.nd="Text Asset.Change24h" Grid.Row="1" Grid.Column="1"/>
+        <TextBlock mvx:Bi.nd="Text Asset.Change7d" Grid.Row="1" Grid.Column="2"/>
+        <TextBlock mvx:Bi.nd="Text Asset.Status" Grid.Row="2" Grid.Column="0"/>
+        <TextBlock mvx:Bi.nd="Text Asset.CreatedAt" Grid.Row="2" Grid.Column="1"/>
+        <TextBlock mvx:Bi.nd="Text Asset.UpdatedAt" Grid.Row="2" Grid.Column="2"/>
+        <ListBox Grid.Row="3" Grid.ColumnSpan="2" Margin="5,5,5,5" ItemsSource="{Binding Markets}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition MinWidth="80"/>
+                            <ColumnDefinition MinWidth="40"/>
+                            <ColumnDefinition MinWidth="40"/>
+                            <ColumnDefinition MinWidth="120"/>
+                            <ColumnDefinition MinWidth="50"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" Text="{Binding ExchangeId}"/>
                         <TextBlock Grid.Column="1" Text="{Binding BaseAsset}"/>
@@ -50,6 +49,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button mvx:Bi.nd="Command CloseCommand" Content="&lt;=" Height="24" Width="60" />
-    </StackPanel>
+        <Button Grid.Row="4" Grid.Column="0" mvx:Bi.nd="Command CloseCommand" Content="&lt;=" Height="24" Width="60" />
+    </Grid>
 </views:MvxWpfView>

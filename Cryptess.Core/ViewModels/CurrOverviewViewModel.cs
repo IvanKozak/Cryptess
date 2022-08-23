@@ -21,8 +21,11 @@ namespace Cryptess.Core.ViewModels
             _assetRepo = assetRepo;
             _navService = navService;
             ViewAssetDetailsCommand = new MvxCommand(async () => await ShowAssetDetails());
+            ShowAssetConverterCommand = new MvxCommand(async () => await ShowAssetConverter());
         }
+
         public IMvxCommand ViewAssetDetailsCommand { get; set; }
+        public IMvxCommand ShowAssetConverterCommand { get; set; }
 
         private ObservableCollection<SimpleAsset> _assets = new ObservableCollection<SimpleAsset>();
 
@@ -81,6 +84,10 @@ namespace Cryptess.Core.ViewModels
         private async Task ShowAssetDetails()
         {
             await _navService.Navigate<AssetDetailsViewModel, SimpleAsset>(SelectedAsset);
+        }
+        private async Task ShowAssetConverter()
+        {
+            await _navService.Navigate<AssetConverterViewModel, ObservableCollection<SimpleAsset>>(Assets);
         }
     }
 }

@@ -46,5 +46,6 @@
             </ListBox>
         </Grid>
         <Button mvx:Bi.nd="Command ViewAssetDetailsCommand" IsEnabled="{Binding CanViewAssetDetails}" Grid.Row="1" Grid.Column="1" Margin="5,5,5,5"> View Asset Details</Button>
+        <Button mvx:Bi.nd="Command ShowAssetConverterCommand" Grid.Row="1">Asset Converter</Button>
     </Grid>
 </views:MvxWpfView>

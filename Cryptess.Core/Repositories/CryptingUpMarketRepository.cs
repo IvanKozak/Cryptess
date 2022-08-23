@@ -33,5 +33,17 @@ namespace Cryptess.Core.Repositories
                 return marketsElement.Deserialize<ObservableCollection<Market>>();
             }
         }
+
+        public async Task<ObservableCollection<Market>> GetMarketsByExchangeIdAsync(string exchangeId)
+        {
+            var requestUri = $"https://cryptingup.com/api/exchanges/{exchangeId}/markets";
+            var jsonString = await _client.GetStringAsync(requestUri);
+            using (JsonDocument document = JsonDocument.Parse(jsonString))
+            {
+                JsonElement root = document.RootElement;
+                JsonElement marketsElement = root.GetProperty("markets");
+                return marketsElement.Deserialize<ObservableCollection<Market>>();
+            }
+        }
     }
 }

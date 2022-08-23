@@ -7,5 +7,6 @@ namespace Cryptess.Core.Repositories
     public interface IMarketRepository
     {
         Task<ObservableCollection<Market>> GetMarketsByAssetIdAsync(string assetId);
+        Task<ObservableCollection<Market>> GetMarketsByExchangeIdAsync(string exchangeId);
     }
 }

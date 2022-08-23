@@ -9,6 +9,5 @@ namespace Cryptess.Core
         {
             RegisterAppStart<CurrOverviewViewModel>();
         }
-
     }
 }

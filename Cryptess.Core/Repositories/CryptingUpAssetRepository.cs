@@ -1,9 +1,9 @@
-﻿using Cryptess.Core.Models;
-using Microsoft.Extensions.Configuration;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Cryptess.Core.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace Cryptess.Core.Repositories
 {
@@ -19,14 +19,11 @@ namespace Cryptess.Core.Repositories
 
         public Asset GetAssetById(string assetId)
         {
-            string requestUri = $"https://cryptingup.com/api/assets/{assetId}";
-            var task = Task.Run(() =>
-            {
-                return _client.GetStringAsync(requestUri);
-            });
+            var requestUri = $"https://cryptingup.com/api/assets/{assetId}";
+            var task = Task.Run(() => _client.GetStringAsync(requestUri));
             task.Wait();
             var jsonString = task.Result;
-            using (JsonDocument document = JsonDocument.Parse(jsonString))
+            using (var document = JsonDocument.Parse(jsonString))
             {
                 return document.RootElement.GetProperty("asset").Deserialize<Asset>();
             }
@@ -34,9 +31,9 @@ namespace Cryptess.Core.Repositories
 
         public async Task<Asset> GetAssetByIdAsync(string assetId)
         {
-            string requestUri = $"https://cryptingup.com/api/assets/{assetId}";
+            var requestUri = $"https://cryptingup.com/api/assets/{assetId}";
             var jsonString = await _client.GetStringAsync(requestUri);
-            using (JsonDocument document = JsonDocument.Parse(jsonString))
+            using (var document = JsonDocument.Parse(jsonString))
             {
                 return document.RootElement.GetProperty("asset").Deserialize<Asset>();
             }
@@ -44,51 +41,8 @@ namespace Cryptess.Core.Repositories
 
         public ObservableCollection<Asset> GetAssets()
         {
-            int size;
             var sizeString = _config["CryptingUp:AssetsSize"];
-            if (int.TryParse(sizeString, out size) == false)
-            {
-                size = 10;
-            }
-            string requestUri = $"https://cryptingup.com/api/assets?size={size}";
-            var task = Task.Run(() =>
-            {
-                return _client.GetStringAsync(requestUri);
-            });
-            task.Wait();
-            var jsonString = task.Result;
-            using (JsonDocument document = JsonDocument.Parse(jsonString))
-            {
-                JsonElement root = document.RootElement;
-                JsonElement assetsElement = root.GetProperty("assets");
-                return assetsElement.Deserialize<ObservableCollection<Asset>>();
-            }
-        }
-
-        public async Task<ObservableCollection<Asset>> GetAssetsAsync()
-        {
-            int size;
-            var sizeString = _config["CryptingUp:AssetsSize"];
-            if (int.TryParse(sizeString, out size) == false)
-            {
-                size = 10;
-            }
-
-            string requestUri = $"https://cryptingup.com/api/assets?size={size}";
-            var jsonString = await _client.GetStringAsync(requestUri);
-            using (JsonDocument document = JsonDocument.Parse(jsonString))
-            {
-                JsonElement root = document.RootElement;
-                JsonElement assetsElement = root.GetProperty("assets");
-                return assetsElement.Deserialize<ObservableCollection<Asset>>();
-            }
-        }
-
-        public ObservableCollection<SimpleAsset> GetAssetsOverview()
-        {
-            int size;
-            var sizeString = _config["CryptingUp:AssetsSize"];
-            if (int.TryParse(sizeString, out size) == false)
+            if (int.TryParse(sizeString, out var size) == false)
             {
                 size = 10;
             }
@@ -96,29 +50,64 @@ namespace Cryptess.Core.Repositories
             var task = Task.Run(() => _client.GetStringAsync(requestUri));
             task.Wait();
             var jsonString = task.Result;
-            using (JsonDocument document = JsonDocument.Parse(jsonString))
+            using (var document = JsonDocument.Parse(jsonString))
             {
-                JsonElement root = document.RootElement;
-                JsonElement assetsElement = root.GetProperty("assets");
-                return assetsElement.Deserialize<ObservableCollection<SimpleAsset>>();
+                var root = document.RootElement;
+                var assetsElement = root.GetProperty("assets");
+                return assetsElement.Deserialize<ObservableCollection<Asset>>();
+            }
+        }
+
+        public async Task<ObservableCollection<Asset>> GetAssetsAsync()
+        {
+            var sizeString = _config["CryptingUp:AssetsSize"];
+            if (int.TryParse(sizeString, out var size) == false)
+            {
+                size = 10;
             }
 
+            var requestUri = $"https://cryptingup.com/api/assets?size={size}";
+            var jsonString = await _client.GetStringAsync(requestUri);
+            using (var document = JsonDocument.Parse(jsonString))
+            {
+                var root = document.RootElement;
+                var assetsElement = root.GetProperty("assets");
+                return assetsElement.Deserialize<ObservableCollection<Asset>>();
+            }
+        }
+
+        public ObservableCollection<SimpleAsset> GetAssetsOverview()
+        {
+            var sizeString = _config["CryptingUp:AssetsSize"];
+            if (int.TryParse(sizeString, out var size) == false)
+            {
+                size = 10;
+            }
+            var requestUri = $"https://cryptingup.com/api/assets?size={size}";
+            var task = Task.Run(() => _client.GetStringAsync(requestUri));
+            task.Wait();
+            var jsonString = task.Result;
+            using (var document = JsonDocument.Parse(jsonString))
+            {
+                var root = document.RootElement;
+                var assetsElement = root.GetProperty("assets");
+                return assetsElement.Deserialize<ObservableCollection<SimpleAsset>>();
+            }
         }
 
         public async Task<ObservableCollection<SimpleAsset>> GetAssetsOverviewAsync()
         {
-            int size;
             var sizeString = _config["CryptingUp:AssetsSize"];
-            if (int.TryParse(sizeString, out size) == false)
+            if (int.TryParse(sizeString, out var size) == false)
             {
                 size = 10;
             }
             var url = $"https://cryptingup.com/api/assets?size={size}";
             var jsonString = await _client.GetStringAsync(url);
-            using (JsonDocument document = JsonDocument.Parse(jsonString))
+            using (var document = JsonDocument.Parse(jsonString))
             {
-                JsonElement root = document.RootElement;
-                JsonElement assetsElement = root.GetProperty("assets");
+                var root = document.RootElement;
+                var assetsElement = root.GetProperty("assets");
                 return assetsElement.Deserialize<ObservableCollection<SimpleAsset>>();
             }
         }

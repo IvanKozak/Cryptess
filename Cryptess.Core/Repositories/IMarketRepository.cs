@@ -1,6 +1,6 @@
-﻿using Cryptess.Core.Models;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using Cryptess.Core.Models;
 
 namespace Cryptess.Core.Repositories
 {

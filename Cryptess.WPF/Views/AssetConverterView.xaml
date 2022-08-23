@@ -1,47 +1,49 @@
 ﻿<views:MvxWpfView x:Class="Cryptess.WPF.Views.AssetConverterView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:views="clr-namespace:MvvmCross.Platforms.Wpf.Views;assembly=MvvmCross.Platforms.Wpf"
-             xmlns:mvx="clr-namespace:MvvmCross.Platforms.Wpf.Binding;assembly=MvvmCross.Platforms.Wpf"
-             xmlns:local="clr-namespace:Cryptess.WPF.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:views="clr-namespace:MvvmCross.Platforms.Wpf.Views;assembly=MvvmCross.Platforms.Wpf"
+                  xmlns:mvx="clr-namespace:MvvmCross.Platforms.Wpf.Binding;assembly=MvvmCross.Platforms.Wpf"
+                  mc:Ignorable="d"
+                  d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="5,5,5,5" ShowGridLines="False">
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="0" Grid.Column="0">
             <Label Content="_Base Asset:" Target="{Binding ElementName=BaseAsset}" />
-            <TextBox Name="BaseAsset" Text="{Binding BaseSearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Name="BaseAsset" Text="{Binding BaseSearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <ListBox ItemsSource="{Binding BaseSearchResults}" SelectedItem="{Binding SelectedBaseAsset, Mode=TwoWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock Text="{Binding Name}" />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
         </StackPanel>
         <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
-            <Label Content="_Quote Asset:" Target="{Binding ElementName=QuoteAsset}"/>
-            <TextBox Name="QuoteAsset" Text="{Binding QuoteSearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <ListBox ItemsSource="{Binding QuoteSearchResults}" SelectedItem="{Binding SelectedQuoteAsset, Mode=TwoWay}">
+            <Label Content="_Quote Asset:" Target="{Binding ElementName=QuoteAsset}" />
+            <TextBox Name="QuoteAsset"
+                     Text="{Binding QuoteSearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <ListBox ItemsSource="{Binding QuoteSearchResults}"
+                     SelectedItem="{Binding SelectedQuoteAsset, Mode=TwoWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock Text="{Binding Name}" />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
         </StackPanel>
-        <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="25" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"  Text="{Binding ConversionResult}"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="25" TextWrapping="Wrap"
+                   HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding ConversionResult}" />
         <Button mvx:Bi.nd="Command CloseCommand" Grid.Row="3" Grid.Column="3" Margin="20,20,20,20">Return</Button>
     </Grid>
 </views:MvxWpfView>

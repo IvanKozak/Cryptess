@@ -1,9 +1,9 @@
-﻿using Cryptess.Core.Models;
-using Microsoft.Extensions.Configuration;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Cryptess.Core.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace Cryptess.Core.Repositories
 {
@@ -26,10 +26,10 @@ namespace Cryptess.Core.Repositories
             }
             var requestUri = $"https://cryptingup.com/api/assets/{assetId}/markets?size={size}";
             var jsonString = await _client.GetStringAsync(requestUri);
-            using (JsonDocument document = JsonDocument.Parse(jsonString))
+            using (var document = JsonDocument.Parse(jsonString))
             {
-                JsonElement root = document.RootElement;
-                JsonElement marketsElement = root.GetProperty("markets");
+                var root = document.RootElement;
+                var marketsElement = root.GetProperty("markets");
                 return marketsElement.Deserialize<ObservableCollection<Market>>();
             }
         }
@@ -38,10 +38,10 @@ namespace Cryptess.Core.Repositories
         {
             var requestUri = $"https://cryptingup.com/api/exchanges/{exchangeId}/markets";
             var jsonString = await _client.GetStringAsync(requestUri);
-            using (JsonDocument document = JsonDocument.Parse(jsonString))
+            using (var document = JsonDocument.Parse(jsonString))
             {
-                JsonElement root = document.RootElement;
-                JsonElement marketsElement = root.GetProperty("markets");
+                var root = document.RootElement;
+                var marketsElement = root.GetProperty("markets");
                 return marketsElement.Deserialize<ObservableCollection<Market>>();
             }
         }

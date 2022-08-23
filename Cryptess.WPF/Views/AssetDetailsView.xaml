@@ -1,92 +1,91 @@
 ﻿<views:MvxWpfView x:Class="Cryptess.WPF.Views.AssetDetailsView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:views="clr-namespace:MvvmCross.Platforms.Wpf.Views;assembly=MvvmCross.Platforms.Wpf"
-             xmlns:mvx="clr-namespace:MvvmCross.Platforms.Wpf.Binding;assembly=MvvmCross.Platforms.Wpf"
-             xmlns:local="clr-namespace:Cryptess.WPF.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:views="clr-namespace:MvvmCross.Platforms.Wpf.Views;assembly=MvvmCross.Platforms.Wpf"
+                  xmlns:mvx="clr-namespace:MvvmCross.Platforms.Wpf.Binding;assembly=MvvmCross.Platforms.Wpf"
+                  mc:Ignorable="d"
+                  d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="10,10,10,10" ShowGridLines="False">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" MinWidth="280"/>
-            <ColumnDefinition Width="*" MinWidth="80"/>
-            <ColumnDefinition Width="*" MinWidth="80"/>
-            <ColumnDefinition Width="2*" MinWidth="140"/>
+            <ColumnDefinition Width="2*" MinWidth="280" />
+            <ColumnDefinition Width="*" MinWidth="80" />
+            <ColumnDefinition Width="*" MinWidth="80" />
+            <ColumnDefinition Width="2*" MinWidth="140" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" MinHeight="70"/>
-            <RowDefinition Height="*" MinHeight="70"/>
-            <RowDefinition Height="*" MinHeight="70"/>
-            <RowDefinition Height="2*" MinHeight="140"/>
-            <RowDefinition Height="*" MinHeight="70"/>
+            <RowDefinition Height="*" MinHeight="70" />
+            <RowDefinition Height="*" MinHeight="70" />
+            <RowDefinition Height="*" MinHeight="70" />
+            <RowDefinition Height="2*" MinHeight="140" />
+            <RowDefinition Height="*" MinHeight="70" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Grid.Column="0">
-            <Label Content="Asset name:"/>
+            <Label Content="Asset name:" />
             <TextBlock mvx:Bi.nd="Text Asset.Name" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </StackPanel>
 
         <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
-            <Label Content="Asset price:"/>
-            <TextBlock mvx:Bi.nd="Text Asset.Price" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Content="Asset price:" />
+            <TextBlock mvx:Bi.nd="Text Asset.Price" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </StackPanel>
 
         <StackPanel Grid.Row="0" Grid.Column="4">
-            <Label Content="Volume 24h:"/>
-            <TextBlock mvx:Bi.nd="Text Asset.Volume24h" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Content="Volume 24h:" />
+            <TextBlock mvx:Bi.nd="Text Asset.Volume24h" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="0">
-            <Label Content="Change 1h:"/>
-            <TextBlock mvx:Bi.nd="Text Asset.Change1h" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Content="Change 1h:" />
+            <TextBlock mvx:Bi.nd="Text Asset.Change1h" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
-            <Label Content="Change 24h:"/>
-            <TextBlock mvx:Bi.nd="Text Asset.Change24h" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Content="Change 24h:" />
+            <TextBlock mvx:Bi.nd="Text Asset.Change24h" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="4">
-            <Label Content="Change 7d:"/>
-            <TextBlock mvx:Bi.nd="Text Asset.Change7d" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Content="Change 7d:" />
+            <TextBlock mvx:Bi.nd="Text Asset.Change7d" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="0">
-            <Label Content="Status:"/>
-            <TextBlock mvx:Bi.nd="Text Asset.Status" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Content="Status:" />
+            <TextBlock mvx:Bi.nd="Text Asset.Status" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-            <Label Content="Created At:"/>
-            <TextBlock mvx:Bi.nd="Text Asset.CreatedAt" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Content="Created At:" />
+            <TextBlock mvx:Bi.nd="Text Asset.CreatedAt" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="4">
-            <Label Content="Updated At:"/>
-            <TextBlock mvx:Bi.nd="Text Asset.UpdatedAt" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Content="Updated At:" />
+            <TextBlock mvx:Bi.nd="Text Asset.UpdatedAt" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </StackPanel>
 
-        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" >
-            <Label Content="Markets:"/>
-            <ListBox SelectedItem="{Binding SelectedMarket}" Margin="5,5,5,5" ItemsSource="{Binding Markets}" >
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+            <Label Content="Markets:" />
+            <ListBox SelectedItem="{Binding SelectedMarket}" Margin="5,5,5,5" ItemsSource="{Binding Markets}">
                 <ListBox.Template>
                     <ControlTemplate>
                         <DockPanel LastChildFill="False">
                             <Grid DockPanel.Dock="Top" Height="30">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="80"/>
-                                    <ColumnDefinition Width="40"/>
-                                    <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition Width="120"/>
-                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="80" />
+                                    <ColumnDefinition Width="40" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="120" />
+                                    <ColumnDefinition Width="50" />
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Column="0" HorizontalAlignment="Center">Exchange</Label>
                                 <Label Grid.Column="1" HorizontalAlignment="Center">Base</Label>
                                 <Label Grid.Column="2" HorizontalAlignment="Center">Quote</Label>
                                 <Label Grid.Column="3" HorizontalAlignment="Center">Price</Label>
                             </Grid>
-                            <ItemsPresenter></ItemsPresenter>
+                            <ItemsPresenter />
                         </DockPanel>
                     </ControlTemplate>
                 </ListBox.Template>
@@ -94,24 +93,27 @@
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition MinWidth="80"/>
-                                <ColumnDefinition MinWidth="40"/>
-                                <ColumnDefinition MinWidth="50"/>
-                                <ColumnDefinition MinWidth="120"/>
-                                <ColumnDefinition MinWidth="50"/>
+                                <ColumnDefinition MinWidth="80" />
+                                <ColumnDefinition MinWidth="40" />
+                                <ColumnDefinition MinWidth="50" />
+                                <ColumnDefinition MinWidth="120" />
+                                <ColumnDefinition MinWidth="50" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="{Binding ExchangeId}" HorizontalAlignment="Center"/>
-                            <TextBlock Grid.Column="1" Text="{Binding BaseAsset}" HorizontalAlignment="Center"/>
-                            <TextBlock Grid.Column="2" Text="{Binding QuoteAsset}" HorizontalAlignment="Center"/>
-                            <TextBlock Grid.Column="3" Text="{Binding Price}" HorizontalAlignment="Center"/>
-                            
+                            <TextBlock Grid.Column="0" Text="{Binding ExchangeId}" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="1" Text="{Binding BaseAsset}" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="2" Text="{Binding QuoteAsset}" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="3" Text="{Binding Price}" HorizontalAlignment="Center" />
+
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
         </StackPanel>
 
-        <Button Grid.Row="3" Grid.Column="2" IsEnabled="{Binding CanVisitExchangeLink}" mvx:Bi.nd="Command OpenExchangeLinkCommand" Margin="10,20,10,20">Visit</Button>
-        <Button Grid.Row="4" Grid.Column="3" mvx:Bi.nd="Command CloseCommand" Content="Return" Margin="10,10,10,10"/>
+        <Button Grid.Row="3" Grid.Column="2" IsEnabled="{Binding CanVisitExchangeLink}"
+                mvx:Bi.nd="Command OpenExchangeLinkCommand" Margin="10,20,10,20">
+            Visit
+        </Button>
+        <Button Grid.Row="4" Grid.Column="3" mvx:Bi.nd="Command CloseCommand" Content="Return" Margin="10,10,10,10" />
     </Grid>
 </views:MvxWpfView>

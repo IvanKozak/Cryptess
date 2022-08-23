@@ -1,6 +1,6 @@
-﻿using Cryptess.Core.Models;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using Cryptess.Core.Models;
 
 namespace Cryptess.Core.Repositories
 {
@@ -12,6 +12,5 @@ namespace Cryptess.Core.Repositories
         Task<ObservableCollection<SimpleAsset>> GetAssetsOverviewAsync();
         Asset GetAssetById(string assetId);
         Task<Asset> GetAssetByIdAsync(string assetId);
-
     }
 }

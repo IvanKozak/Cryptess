@@ -1,21 +1,21 @@
-﻿using Cryptess.Core.Repositories;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Cryptess.Core.Repositories;
 
 namespace Cryptess.Core.Services
 {
     public class ExchangeUrlService : IExchangeUrlService
     {
-        private readonly IAssetRepository _assetRepo;
         private readonly Dictionary<string, string> _assetIdAssetName;
+        private readonly IAssetRepository _assetRepo;
 
         public ExchangeUrlService(IAssetRepository assetRepo)
         {
             _assetRepo = assetRepo;
             var assets = _assetRepo.GetAssetsOverview();
             _assetIdAssetName = assets.ToDictionary(x => x.AssetId, x => x.Name);
-
         }
+
         public string GetUrl(string exchangeId, string assetId)
         {
             string assetName;

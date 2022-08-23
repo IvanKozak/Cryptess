@@ -1,21 +1,28 @@
-﻿using Cryptess.Core.Models;
+﻿using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using Cryptess.Core.Models;
 using Cryptess.Core.Repositories;
 using Cryptess.Core.Services;
 using MvvmCross.Commands;
 using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 
 namespace Cryptess.Core.ViewModels
 {
     public class AssetDetailsViewModel : MvxViewModel<SimpleAsset>
     {
-        private readonly IMvxNavigationService _navService;
         private readonly IAssetRepository _assetRepo;
         private readonly IMarketRepository _marketRepo;
+        private readonly IMvxNavigationService _navService;
         private readonly IExchangeUrlService _urlService;
+        private Asset _asset;
         private string _exchangeUrl;
+        private ObservableCollection<Market> _markets;
+
+        private Market _selectedMarket;
+
+        private SimpleAsset _simpleAsset;
 
         public AssetDetailsViewModel(IMvxNavigationService mvxNavigationService,
             IAssetRepository assetRepo, IMarketRepository marketRepo, IExchangeUrlService urlService)
@@ -27,40 +34,26 @@ namespace Cryptess.Core.ViewModels
             _marketRepo = marketRepo;
             _urlService = urlService;
         }
+
         public IMvxCommand CloseCommand { get; set; }
 
         public IMvxCommand OpenExchangeLinkCommand { get; set; }
 
-        private SimpleAsset _simpleAsset;
-        public override void Prepare(SimpleAsset parameter)
-        {
-            _simpleAsset = parameter;
-        }
-        private Asset _asset;
         public Asset Asset
         {
-            get { return _asset; }
-            set
-            {
-                SetProperty(ref _asset, value);
-            }
+            get => _asset;
+            set => SetProperty(ref _asset, value);
         }
-        private ObservableCollection<Market> _markets;
 
         public ObservableCollection<Market> Markets
         {
-            get { return _markets; }
-            set
-            {
-                SetProperty(ref _markets, value);
-            }
+            get => _markets;
+            set => SetProperty(ref _markets, value);
         }
-
-        private Market _selectedMarket;
 
         public Market SelectedMarket
         {
-            get { return _selectedMarket; }
+            get => _selectedMarket;
             set
             {
                 SetProperty(ref _selectedMarket, value);
@@ -73,12 +66,14 @@ namespace Cryptess.Core.ViewModels
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(_exchangeUrl))
-                {
-                    return false;
-                }
+                if (string.IsNullOrWhiteSpace(_exchangeUrl)) return false;
                 return true;
             }
+        }
+
+        public override void Prepare(SimpleAsset parameter)
+        {
+            _simpleAsset = parameter;
         }
 
         public override async Task Initialize()
@@ -95,11 +90,11 @@ namespace Cryptess.Core.ViewModels
 
         private void OpenExchangeLink()
         {
-            var sInfo = new System.Diagnostics.ProcessStartInfo(_exchangeUrl)
+            var sInfo = new ProcessStartInfo(_exchangeUrl)
             {
-                UseShellExecute = true,
+                UseShellExecute = true
             };
-            System.Diagnostics.Process.Start(sInfo);
+            Process.Start(sInfo);
         }
     }
 }

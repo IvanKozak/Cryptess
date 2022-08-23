@@ -20,7 +20,7 @@ This app is implemented using MVVM pattern with help of [MvvmCross](https://www.
 - Implement additional features:
     - [ ]   Ability to go to the currency page on the market 
     - [ ]	Displaying quote charts for currencies 
-    - [ ]	Page in which you can convert one currency to another
+    - [x]	Page in which you can convert one currency to another
     - [ ]	Light / dark theme support
     - [ ]	Support for multiple localizations
 
@@ -29,12 +29,19 @@ This app is implemented using MVVM pattern with help of [MvvmCross](https://www.
 In order to run the application you need:
 
 1. Clone this repository
-2. (Optional) Open appsettings.Development.json file located at *Cryptess/Cryptess.WPF/appsettings.Development.json* with text editor and add following entries:
+2. Open appsettings.Development.json file located at *Cryptess/Cryptess.WPF/appsettings.Development.json* with text editor and add entry for exchange used in currency converter like that:
+```json
+{
+  "AssetConverter": {
+    "Exchange": "BINANCE"
+}
+```
+2. (Optional) Add to appsettings.Development.json this entries:
 ```json
 {
   "CryptingUp": {
     "AssetsSize": 10,
-    "MarketsSize": 5
+    "MarketsSize": 5 
 }
 ```
 Modifying "AssetsSize" you can display different numbers of assets on main page (default is 10), and "MarketsSize" corresponds to the number of markets displayed on details page (default is 5).

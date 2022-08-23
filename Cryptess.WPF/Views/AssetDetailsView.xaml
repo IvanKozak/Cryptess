@@ -8,47 +8,107 @@
              xmlns:local="clr-namespace:Cryptess.WPF.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="10,10,10,10">
+    <Grid Margin="10,10,10,10" ShowGridLines="False">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" MinWidth="120"/>
-            <ColumnDefinition Width="*" MinWidth="120"/>
-            <ColumnDefinition Width="*" MinWidth="120"/>
+            <ColumnDefinition Width="*" MinWidth="280"/>
+            <ColumnDefinition Width="*" MinWidth="280"/>
+            <ColumnDefinition Width="*" MinWidth="280"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" MinHeight="70"/>
             <RowDefinition Height="*" MinHeight="70"/>
             <RowDefinition Height="*" MinHeight="70"/>
-            <RowDefinition Height="2*" MinHeight="70"/>
+            <RowDefinition Height="2*" MinHeight="140"/>
             <RowDefinition Height="*" MinHeight="70"/>
         </Grid.RowDefinitions>
-        <TextBlock mvx:Bi.nd="Text Asset.Name" Grid.Row="0" Grid.Column="0"/>
-        <TextBlock mvx:Bi.nd="Text Asset.Price" Grid.Row="0" Grid.Column="1"/>
-        <TextBlock mvx:Bi.nd="Text Asset.Volume24h" Grid.Row="0" Grid.Column="2"/>
-        <TextBlock mvx:Bi.nd="Text Asset.Change1h" Grid.Row="1" Grid.Column="0"/>
-        <TextBlock mvx:Bi.nd="Text Asset.Change24h" Grid.Row="1" Grid.Column="1"/>
-        <TextBlock mvx:Bi.nd="Text Asset.Change7d" Grid.Row="1" Grid.Column="2"/>
-        <TextBlock mvx:Bi.nd="Text Asset.Status" Grid.Row="2" Grid.Column="0"/>
-        <TextBlock mvx:Bi.nd="Text Asset.CreatedAt" Grid.Row="2" Grid.Column="1"/>
-        <TextBlock mvx:Bi.nd="Text Asset.UpdatedAt" Grid.Row="2" Grid.Column="2"/>
-        <ListBox Grid.Row="3" Grid.ColumnSpan="2" Margin="5,5,5,5" ItemsSource="{Binding Markets}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition MinWidth="80"/>
-                            <ColumnDefinition MinWidth="40"/>
-                            <ColumnDefinition MinWidth="40"/>
-                            <ColumnDefinition MinWidth="120"/>
-                            <ColumnDefinition MinWidth="50"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="{Binding ExchangeId}"/>
-                        <TextBlock Grid.Column="1" Text="{Binding BaseAsset}"/>
-                        <TextBlock Grid.Column="2" Text="{Binding QuoteAsset}"/>
-                        <TextBlock Grid.Column="3" Text="{Binding Price}"/>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Button Grid.Row="4" Grid.Column="0" mvx:Bi.nd="Command CloseCommand" Content="&lt;=" Height="24" Width="60" />
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <Label Content="Asset name:"/>
+            <TextBlock mvx:Bi.nd="Text Asset.Name" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <Label Content="Asset price:"/>
+            <TextBlock mvx:Bi.nd="Text Asset.Price" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="2">
+            <Label Content="Volume 24h:"/>
+            <TextBlock mvx:Bi.nd="Text Asset.Volume24h" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <Label Content="Change 1h:"/>
+            <TextBlock mvx:Bi.nd="Text Asset.Change1h" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Content="Change 24h:"/>
+            <TextBlock mvx:Bi.nd="Text Asset.Change24h" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="2">
+            <Label Content="Change 7d:"/>
+            <TextBlock mvx:Bi.nd="Text Asset.Change7d" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="0">
+            <Label Content="Status:"/>
+            <TextBlock mvx:Bi.nd="Text Asset.Status" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <Label Content="Created At:"/>
+            <TextBlock mvx:Bi.nd="Text Asset.CreatedAt" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="2">
+            <Label Content="Updated At:"/>
+            <TextBlock mvx:Bi.nd="Text Asset.UpdatedAt" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="1" >
+            <Label Content="Markets:"/>
+            <ListBox  Margin="5,5,5,5" ItemsSource="{Binding Markets}" >
+                <ListBox.Template>
+                    <ControlTemplate>
+                        <DockPanel LastChildFill="True">
+                            <Grid DockPanel.Dock="Top" Height="30">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" HorizontalAlignment="Center">Exchange</Label>
+                                <Label Grid.Column="1" HorizontalAlignment="Center">Base</Label>
+                                <Label Grid.Column="2" HorizontalAlignment="Center">Quote</Label>
+                                <Label Grid.Column="3" HorizontalAlignment="Center">Price</Label>
+                            </Grid>
+                            <ItemsPresenter></ItemsPresenter>
+                        </DockPanel>
+                    </ControlTemplate>
+                </ListBox.Template>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition MinWidth="80"/>
+                                <ColumnDefinition MinWidth="40"/>
+                                <ColumnDefinition MinWidth="50"/>
+                                <ColumnDefinition MinWidth="120"/>
+                                <ColumnDefinition MinWidth="50"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{Binding ExchangeId}" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Column="1" Text="{Binding BaseAsset}" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Column="2" Text="{Binding QuoteAsset}" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Column="3" Text="{Binding Price}" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        
+        <Button Grid.Row="4" Grid.Column="0" mvx:Bi.nd="Command CloseCommand" Content="Return" Margin="10,10,10,10"/>
     </Grid>
 </views:MvxWpfView>

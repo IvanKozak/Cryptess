@@ -31,21 +31,18 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Grid Grid.Row="0" Grid.Column="1" Margin="5,5,5,5">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <TextBox Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <ListBox Grid.Row="1" ItemsSource="{Binding SearchResults}" SelectedItem="{Binding SelectedAsset, Mode=TwoWay}">
+        <StackPanel Grid.Column="1">
+            <Label Target="{Binding ElementName=AssetSearch}" Content="_Search for currencies:"/>
+            <TextBox Name="AssetSearch" Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <ListBox ItemsSource="{Binding SearchResults}" SelectedItem="{Binding SelectedAsset, Mode=TwoWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Name}"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-        </Grid>
+        </StackPanel>
         <Button mvx:Bi.nd="Command ViewAssetDetailsCommand" IsEnabled="{Binding CanViewAssetDetails}" Grid.Row="1" Grid.Column="1" Margin="5,5,5,5"> View Asset Details</Button>
-        <Button mvx:Bi.nd="Command ShowAssetConverterCommand" Grid.Row="1">Asset Converter</Button>
+        <Button mvx:Bi.nd="Command ShowAssetConverterCommand" Grid.Row="1" Margin="5,5,5,5">Asset Converter</Button>
     </Grid>
 </views:MvxWpfView>

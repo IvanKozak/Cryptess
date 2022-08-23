@@ -1,4 +1,5 @@
 ﻿using Cryptess.Core.Repositories;
+using Cryptess.Core.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using MvvmCross;
@@ -31,6 +32,7 @@ namespace Cryptess.WPF
             Mvx.IoCProvider.RegisterSingleton<IConfiguration>(AddConfiguration());
             Mvx.IoCProvider.RegisterType<IAssetRepository, CryptingUpAssetRepository>();
             Mvx.IoCProvider.RegisterType<IMarketRepository, CryptingUpMarketRepository>();
+            Mvx.IoCProvider.RegisterType<IExchangeUrlService, ExchangeUrlService>();
         }
         private IConfiguration AddConfiguration()
         {
